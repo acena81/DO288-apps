@@ -146,6 +146,7 @@ pipeline {
                                openshift.selector("dc", "${APP_NAME}").related("pods").untileach(1){
                                     return (it.object().status.phase == "Runnng")
                                }
+                           }
                         }
 
                         echo "Deployment to Staging env is complete. Access the app at the URL http://${routeHost}."
